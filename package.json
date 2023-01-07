@@ -1,0 +1,21 @@
+{
+  "name": "labecomerce-backend",
+  "version": "1.0.0",
+  "description": "Este é o backend do Labecomerce",
+  "main": "index.js",
+  "scripts": {
+    "start":"clear && node ./index.js",
+    "parOuImpar":"clear && node ./parOuImpar.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesaralmeida002/Labecomerce-Backend.git"
+  },
+  "author": "César Almeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cesaralmeida002/Labecomerce-Backend/issues"
+  },
+  "homepage": "https://github.com/cesaralmeida002/Labecomerce-Backend#readme"
+}
