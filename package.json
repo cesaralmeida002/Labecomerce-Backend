@@ -4,9 +4,8 @@
   "description": "Este é o backend do Labecomerce",
   "main": "index.js",
   "scripts": {
-    "start":"clear && node ./index.js",
-    "parOuImpar":"clear && node ./parOuImpar.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && clear && node ./build/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/cesaralmeida002/Labecomerce-Backend/issues"
   },
-  "homepage": "https://github.com/cesaralmeida002/Labecomerce-Backend#readme"
+  "homepage": "https://github.com/cesaralmeida002/Labecomerce-Backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  }
 }
