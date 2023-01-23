@@ -1,17 +1,20 @@
-export enum COURSE_STACK {
-    FRONT = "Front-end",
-    BACK = "Back-end"
+//Tipagem
+
+export type TUsers = {
+    id: string,
+    email: string,
+    password: string,
 }
 
-export type TCourse = {
+export type TProduct = {
     id: string,
-    name: string,
-    lessons: number,
-    stack: COURSE_STACK
+    price: number,
+    category: string,
 }
 
-export type TStudants = {
-    id: string,
-    name: string,
-    age: number,
+export type TPurchase = {
+    userId: string,
+    productId: string,
+    quantity: number,
+    totalPrice: number,
 }
