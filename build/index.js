@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-express_1.application.get('/ping', (req, res) => {
-    res.status(200).send("pong");
-});
+const database_1 = require("./database");
+console.log(database_1.users);
+console.log(database_1.product);
+console.log(database_1.purchase);
 //# sourceMappingURL=index.js.map

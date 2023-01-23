@@ -1,35 +1,57 @@
-import { COURSE_STACK, TCourse, TStudants } from "./types"
+import { TUsers, TProduct, TPurchase } from "./types";
 
-export const courses: TCourse[] = [
+export const users: TUsers[] = [
     {
-        id: "c001",
-        name: "React",
-        lessons: 12,
-        stack: COURSE_STACK.FRONT
+        id: "us001",
+        email: "jose@email.com",
+        password: "jose123",
     },
     {
-        id: "c002",
-        name: "Styled Components",
-        lessons: 4,
-        stack: COURSE_STACK.FRONT
+        id: "us002",
+        email: "maria@email.com",
+        password: "maria123",
     },
     {
-        id: "c003",
-        name: "Express",
-        lessons: 5,
-        stack: COURSE_STACK.BACK
-    },
+        id: "us003",
+        email: "joao@email.com",
+        password: "joao123",
+    }
 ]
 
-export const studants: TStudants[] = [
+export const product: TProduct[] = [
     {
-        id: "a001",
-        name: "Joao",
-        age: 25
+        id: "pr001",
+        price: 22.99,
+        category: "rock",
     },
     {
-        id: "a002",
-        name: "Maria",
-        age: 22
+        id: "pr002",
+        price: 19.90,
+        category: "forro",
+    },
+    {
+        id: "pr003",
+        price: 59.90,
+        category: "jazz",
     }
+]
+export const purchase: TPurchase[] = [
+    {
+        userId: "us001",
+        productId: "pr001",
+        quantity: 2,
+        totalPrice: 43.98
+    },
+    {
+        userId: "us002",
+        productId: "pr002",
+        quantity: 1,
+        totalPrice: 19.90
+    },
+    {
+        userId: "us003",
+        productId: "pr003",
+        quantity: 4,
+        totalPrice: 239.60
+    },
 ]
