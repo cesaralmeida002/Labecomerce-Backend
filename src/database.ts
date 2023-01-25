@@ -1,4 +1,5 @@
 import { TUsers, TProduct, TPurchase } from "./types";
+import { MusicalStyle } from "./types";
 
 export const users: TUsers[] = [
     {
@@ -22,17 +23,17 @@ export const product: TProduct[] = [
     {
         id: "pr001",
         price: 22.99,
-        category: "rock",
+        category: MusicalStyle.ROCK
     },
     {
         id: "pr002",
         price: 19.90,
-        category: "forro",
+        category: MusicalStyle.FORRO
     },
     {
         id: "pr003",
         price: 59.90,
-        category: "jazz",
+        category: MusicalStyle.JAZZ
     }
 ]
 export const purchase: TPurchase[] = [

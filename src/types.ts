@@ -18,3 +18,9 @@ export type TPurchase = {
     quantity: number,
     totalPrice: number,
 }
+
+export enum MusicalStyle {
+    ROCK = "ROCK",
+    FORRO = "FORRO",
+    JAZZ = "JAZZ",
+}
