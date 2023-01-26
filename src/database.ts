@@ -22,16 +22,19 @@ export const users: TUsers[] = [
 export const product: TProduct[] = [
     {
         id: "pr001",
+        name: "cd-Metalica",
         price: 22.99,
         category: MusicalStyle.ROCK
     },
     {
         id: "pr002",
+        name: "cd-Aviões",
         price: 19.90,
         category: MusicalStyle.FORRO
     },
     {
         id: "pr003",
+        name: "cd-ArtBlakey",
         price: 59.90,
         category: MusicalStyle.JAZZ
     }

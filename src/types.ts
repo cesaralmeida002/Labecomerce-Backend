@@ -8,6 +8,7 @@ export type TUsers = {
 
 export type TProduct = {
     id: string,
+    name: string,
     price: number,
     category: string,
 }
