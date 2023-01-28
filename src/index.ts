@@ -22,12 +22,44 @@ app.get('/ping', (req: Request, res: Response) => {
     res.status(200).send('Pong')
 });
 
-app.get('/users', (req: Request, res: Response) => {
+app.get('/users', (req: Request, res: Response) =>{
     res.status(200).send(users)
 })
 
-app.get('/product', (req: Request, res: Response) => {
-    res.status(200).send(product)
+app.get('/users/:id', (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const result = users.find((user) => user.id === id)
+        if (!result) {
+            res.status(404)
+            throw new Error("Conta não encontrada. Verifique a 'ID'")
+        }
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
+    }
+})
+
+app.get('/product/:id', (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const result = product.find((product1) => product1.id === id)
+        if (!result) {
+            res.status(404)
+            throw new Error("Produto não encontrada. Verifique a 'ID'")
+        }
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
+    }
 })
 
 app.get('/product/search', (req: Request, res: Response) => {
@@ -35,16 +67,38 @@ app.get('/product/search', (req: Request, res: Response) => {
     res.status(200).send(q)
 })
 
-app.post('/users', (req: Request, res: Response) => {
-    const { id, email, password } = req.body as TUsers
-
-    const newUsers = {
-        id,
-        email,
-        password,
+app.post('/users/:id', (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const email = req.params.email
+        
+        if (id[0] !== id) {
+            res.status(400)
+            throw new Error("'ID' ja existente, Digite um novo ID")
+        }
+        if (email[0] !== email) {
+            res.status(400)
+            throw new Error("'E-MAIL' já existe. Digite um novo E-MAIL")
+        }
+        const userIndex = users.findIndex((user) => user.id === id)
+        const userIndex1 = users.findIndex((user) => user.email === email)
+    if (userIndex >= 0) {
+        users.splice(userIndex)
+        
     }
-    users.push(newUsers)
+    if (userIndex1 >= 0) {
+        users.splice(userIndex1)
+        
+    }
     res.status(201).send("Name cadastro realizado com sucesso!!")
+
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
+    }
 })
 
 app.post('/products', (req: Request, res: Response) => {
@@ -73,35 +127,77 @@ app.post('/purchase', (req: Request, res: Response) => {
     res.status(201).send("Compra realizada com sucesso!!")
 })
 
-app.get('/products/:id', (req: Request, res: Response) => {
-    const id = req.params.id
-    const result = product.find((product) => product.id === id)
-    res.status(200).send(result)
+app.get('/product/:id', (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const result = product.find((product1) => product1.id === id)
+        if (!result) {
+            res.status(404)
+            throw new Error("Produto não encontrada. Verifique a 'ID'")
+        }
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
+    }
 })
 
 app.get('/users/:id/purchase', (req: Request, res: Response) => {
-    const id = req.params.id
-    const result = product.find((purchase) => purchase.id === id)
-    res.status(200).send(result)
-})
+        try {
+            const id = req.params.id
+            const result = product.find((user) => user.id === id)
+            if (!result) {
+                res.status(404)
+                throw new Error("Usuário não encontrado. Verifique a 'ID'")
+            }
+            res.status(200).send(result)
+        } catch (error: any) {
+            console.log(error)
+            if (res.statusCode === 200) {
+                res.status(500)
+            }
+            res.send(error.message)
+        }
+    })
 
 
 app.delete('/users/:id', (req: Request, res: Response) => {
-    const id = req.params.id
-    const userDelete = users.findIndex((users) => users.id === id)
-    if (userDelete >= 0) {
-        users.splice(userDelete, 1)
+    try {
+        const id = req.params.id
+        const result = product.find((user) => user.id === id)
+        if (!result) {
+            res.status(404)
+            throw new Error("Usuário não encontrado. Verifique a 'ID'")
+        }
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
     }
-    res.status(200).send("Item deletado com sucesso!")
 })
 
 app.delete('/products/:id', (req: Request, res: Response) => {
-    const id = req.params.id
-    const productDelete = product.findIndex((product) => product.id === id)
-    if (productDelete >= 0) {
-        product.splice(productDelete, 1)
+    try {
+        const id = req.params.id
+        const result = product.find((product1) => product1.id === id)
+        if (!result) {
+            res.status(404)
+            throw new Error("Usuário não encontrado. Verifique a 'ID'")
+        }
+        res.status(200).send(result)
+    } catch (error: any) {
+        console.log(error)
+        if (res.statusCode === 200) {
+            res.status(500)
+        }
+        res.send(error.message)
     }
-    res.status(200).send("Item deletado com sucesso!")
 })
 
 app.put('/users/:id', (req: Request, res: Response) => {
@@ -124,12 +220,12 @@ app.put('/products/:id', (req: Request, res: Response) => {
     const newCategory = req.body.category as MusicalStyle | undefined
 
     const product1 = product.find((product1) => product1.id === id)
-    
+
     if (product1) {
         product1.name = newName || product1.name
         product1.category = newCategory || product1.category
 
-        product1.price = isNaN(newPrice) ? product1.price: newPrice
+        product1.price = isNaN(newPrice) ? product1.price : newPrice
     }
     res.status(200).send("Produto atualizado com sucesso!")
 })
