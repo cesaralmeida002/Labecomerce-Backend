@@ -22,16 +22,19 @@ exports.users = [
 exports.product = [
     {
         id: "pr001",
+        name: "cd-Metalica",
         price: 22.99,
         category: types_1.MusicalStyle.ROCK
     },
     {
         id: "pr002",
+        name: "cd-Aviões",
         price: 19.90,
         category: types_1.MusicalStyle.FORRO
     },
     {
         id: "pr003",
+        name: "cd-ArtBlakey",
         price: 59.90,
         category: types_1.MusicalStyle.JAZZ
     }
